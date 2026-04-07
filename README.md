@@ -1,169 +1,145 @@
 # Ryo AI Aesthetic Web Builder
 
-> **High Aesthetic × High Conversion** — We solve the "pretty but useless vs optimized but ugly" dilemma.
+你刚拿到一份产品文档，老板让你"做个好看的官网"。
 
-## 核心价值 | Core Value
+你打开 Figma，盯着空白画布发呆。配色怎么选？文案怎么写？怎么让用户愿意留下来？怎么让 Google 搜得到？
 
-**为什么用 Ryo AI Builder？**
+更崩溃的是——你还得写三版 Hero 文案做 A/B 测试。今晚能下班吗？
 
-| 问题 | 传统方案 | **Ryo AI Builder** |
-|------|---------|-------------------|
-| 审美 | 模板堆砌 | Primitives-first，14视觉趋势×5品牌原型 |
-| 转化 | 经验主义 | Julian公式：Desire − (Labor + Confusion) |
-| 增长 | 漏斗思维 | Brian Balfour循环：Loops > Funnels |
-| SEO | 关键词堆砌 | 内容优先，语义化架构 |
-| A/B测试 | 手动创建 | 内置3种Hero变体自动生成 |
-| 灵感 | 无系统来源 | Variant→Mobbin→Craftwork→Impeccable |
+**这个技能就是来救场的。**
 
 ---
 
-## 跨平台配置 | Platform Setup
+## 这到底是什么？
 
-### Cursor / Claude Code
-```bash
-# 方法1：复制规则文件
-mkdir -p .cursor/rules
-cp ryo-ai-aesthetic-web-builder/.cursor/rules/ryo-ai-aesthetic-web-builder.md .cursor/rules/
+简单来说，你把产品文档丢给它，它会还你一个**既好看又能打**的网站。
 
-# 方法2：作为 skill 导入
-# 在 Cursor Settings > Skills 中添加此文件夹路径
-```
+好看，是因为注入了 Cursor 设计负责人 Ryo Lu 的审美体系。能打，是因为它不只设计——还内置了 Julian Shapiro 的转化公式和 Brian Balfour 的增长方法论。
 
-### OpenClaw
-```bash
-mkdir -p ~/.openclaw/skills
-cp ryo-ai-aesthetic-web-builder/.openclaw/skills/ryo-ai-aesthetic-web-builder.md ~/.openclaw/skills/
-```
+**翻译成白话：**
 
-### Codex CLI (OpenAI)
-```bash
-mkdir -p ~/.codex/skills
-cp ryo-ai-aesthetic-web-builder/.codex/skills/ryo-ai-aesthetic-web-builder.md ~/.codex/skills/
-```
-
-### Gemini CLI
-```bash
-mkdir -p ~/.gemini/skills
-cp ryo-ai-aesthetic-web-builder/.gemini/skills/ryo-ai-aesthetic-web-builder.md ~/.gemini/skills/
-```
-
-### Windsurf
-```bash
-mkdir -p .windsurf/rules
-cp ryo-ai-aesthetic-web-builder/.windsurf/rules/ryo-ai-aesthetic-web-builder.md .windsurf/rules/
-```
-
-### Trae
-```bash
-mkdir -p .trae/rules
-cp ryo-ai-aesthetic-web-builder/.trae/rules/ryo-ai-aesthetic-web-builder.md .trae/rules/
-```
-
-### 通用 Agents
-```bash
-mkdir -p ~/.agents/skills
-cp ryo-ai-aesthetic-web-builder/.agents/skills/ryo-ai-aesthetic-web-builder.md ~/.agents/skills/
-```
-
-### Mira
-在 Mira 技能中心上传 `.skill` 或 `.zip` 文件即可自动识别安装。
+- 不会配色？它会根据你的品牌调性自动选趋势色
+- 不会写文案？它直接给你三版 Hero 文案，拿去测哪个转化高
+- 不懂 SEO？它会自动埋好关键词和结构化数据
+- 不知道竞品用什么 UI？它知道去 Mobbin 找参考
 
 ---
 
-## 快速开始 | Quick Start
+## 7 个平台都能用
 
-### 触发指令示例
+| 平台 | 安装方式 |
+|------|---------|
+| Cursor / Claude Code | 复制到 `.cursor/rules/` |
+| OpenClaw | 复制到 `~/.openclaw/skills/` |
+| Codex CLI | 复制到 `~/.codex/skills/` |
+| Gemini CLI | 复制到 `~/.gemini/skills/` |
+| Windsurf | 复制到 `.windsurf/rules/` |
+| Trae | 复制到 `.trae/rules/` |
+| Mira | 直接上传 `.skill` 文件 |
+
+---
+
+## 一句话就能用
+
+试试对 AI 说：
 
 **中文：**
-- "根据这份文档做一个高品位 AI 网站"
+- "根据这份文档做一个 AI 产品网站"
 - "帮我优化落地页转化率"
-- "生成多版 Hero 文案做 A/B test"
-- "按 Aesthetics of AI 的范式设计网站"
-- "从 Mobbin 找类似的 UI 参考"
+- "生成三版 Hero 文案做 A/B 测试"
 
 **English:**
-- "Build a high-aesthetic AI website from this document"
-- "Optimize my landing page conversion"
-- "Generate multiple Hero variants for A/B testing"
-- "Design a website following Aesthetics of AI principles"
-- "Find UI references from Mobbin"
+- "Build an AI website from this document"
+- "Optimize my landing page for conversion"
+- "Generate three Hero variants for A/B testing"
 
 ---
 
-## 文件结构 | File Structure
+## 它从哪学的？
 
-```
-ryo-ai-aesthetic-web-builder/
-├── README.md                          # 中英双语文档
-├── SKILL.md                           # 核心技能指令
-├── references/
-│   ├── aesthetics_of_ai_primitives.md # 14视觉趋势×5品牌原型
-│   ├── growth_primitives.md           # Julian + Brian 增长方法论
-│   ├── cursor_growth_case.md          # $0→$2B 案例拆解
-│   └── design_inspiration_library.md  # Variant/Mobbin/Craftwork/Impeccable
-├── scripts/
-│   └── extract_text.py                # 文档解析工具
-├── .cursor/rules/                     # Cursor / Claude Code
-├── .codex/skills/                     # OpenAI Codex CLI
-├── .gemini/skills/                    # Gemini CLI
-├── .agents/skills/                    # Generic agents
-├── .openclaw/skills/                  # OpenClaw
-├── .windsurf/rules/                   # Windsurf
-└── .trae/rules/                       # Trae
-```
+这个技能的大脑里装着几份资料：
+
+- **Ryo Lu 的审美体系** — 14 种视觉趋势，5 种品牌原型
+- **Julian Shapiro 的增长手册** — 怎么让用户从"看看"变成"买"
+- **Brian Balfour 的循环理论** — 产品自己会长
+- **Cursor $0→$2B 案例** — 看看人家怎么做的
+- **四个灵感库** — Variant, Mobbin, Craftwork, Impeccable
 
 ---
 
-## 核心方法论 | Core Methodology
+## 最后
 
-### 1. Aesthetic Layer (Aesthetics of AI)
-- **14 Visual Trends**: Canvas×Signal, Playful Precision, Generative Organic, etc.
-- **5 Brand Archetypes**: Likeable Leaders, Gentle Humanists, Nerdy Idealists, Bold Builders, Utopian Dreamers
-- **Primitives-first**: Color, Typography, Layout, Texture, Motion as tokens
+MIT 协议，随便用。有想法欢迎 PR。
 
-### 2. Conversion Layer (Julian Shapiro)
-```
-Purchase Rate = Desire − (Labor + Confusion)
-```
-
-**3 Hero A/B Variants:**
-1. **Bold Claim** — Contrarian positioning
-2. **Objection Killer** — Address pain points
-3. **Story** — Emotional connection
-
-### 3. Growth Layer (Brian Balfour)
-**Loops > Funnels**
-
-- **Content Loop**: UGC → SEO → Users
-- **Product Loop**: Usage → Value → Sharing
-- **Community Loop**: Engagement → Network → Advocacy
-
-### 4. SEO Layer
-- Topic clusters over keyword stuffing
-- Pain-point driven content
-- Schema markup implementation
-- Internal linking strategy
+> "设计不是装饰。每个像素都应该有它的使命。" — Ryo Lu
 
 ---
 
-## 质量指标 | Quality Benchmarks
+# English Version
 
-| 指标 | 目标值 |
-|------|--------|
-| Page Load | < 2s |
-| Core Web Vitals | Pass |
-| Accessibility | WCAG 2.1 AA |
-| SEO Score | > 90 |
-| Conversion Rate | +30% vs baseline |
+You just got a product doc. Your boss wants a "nice website."
 
----
+You open Figma. Stare at the blank canvas. What colors? What copy? How do you make people stay? How do you get found on Google?
 
-## 许可 | License
+Oh, and you need three versions of the Hero section for A/B testing. Will you make it home tonight?
 
-MIT License — 自由使用，欢迎贡献。
+**This skill exists to fix exactly that.**
 
 ---
 
-> "Design isn't decoration. It's communication with intent. Every pixel should earn its place." — Ryo Lu
+## What is this?
 
-> "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away." — Antoine de Saint-Exupéry
+Simple: feed it your product doc, get back a website that's **both beautiful and effective**.
+
+Beautiful because it channels Ryo Lu's (Cursor's design lead) aesthetic sensibility. Effective because it doesn't just design—it bakes in Julian Shapiro's conversion formula and Brian Balfour's growth methodology.
+
+**In plain English:**
+
+- Can't pick colors? It auto-selects trend palettes based on your brand vibe
+- Can't write copy? It generates three Hero variants—go test which converts
+- Don't know SEO? It auto-injects keywords and structured data
+- Not sure what UI patterns work? It knows to check Mobbin for references
+
+---
+
+## Works on 7 Platforms
+
+| Platform | Install |
+|----------|---------|
+| Cursor / Claude Code | Copy to `.cursor/rules/` |
+| OpenClaw | Copy to `~/.openclaw/skills/` |
+| Codex CLI | Copy to `~/.codex/skills/` |
+| Gemini CLI | Copy to `~/.gemini/skills/` |
+| Windsurf | Copy to `.windsurf/rules/` |
+| Trae | Copy to `.trae/rules/` |
+| Mira | Upload the `.skill` file |
+
+---
+
+## One Sentence Away
+
+Try telling your AI:
+
+- "Build an AI website from this document"
+- "Optimize my landing page for conversion"
+- "Generate three Hero variants for A/B testing"
+
+---
+
+## Where It Learned From
+
+This skill's brain contains:
+
+- **Ryo Lu's aesthetic system** — 14 visual trends, 5 brand archetypes
+- **Julian Shapiro's growth playbook** — turning browsers into buyers
+- **Brian Balfour's loop theory** — making products grow themselves
+- **Cursor's $0→$2B case study** — how they actually did it
+- **Four inspiration libraries** — Variant, Mobbin, Craftwork, Impeccable
+
+---
+
+## License
+
+MIT. Use freely. PRs welcome.
+
+> "Design isn't decoration. Every pixel should earn its place." — Ryo Lu
